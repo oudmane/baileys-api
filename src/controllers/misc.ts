@@ -11,7 +11,10 @@ export const makePhotoURLHandler =
 			const session = WhatsappService.getSession(sessionId)!;
 
 			const exists = await WhatsappService.jidExists(session, jid, type);
-			if (!exists) return res.status(400).json({ error: "Jid does not exists" });
+			if (!exists) {
+				res.status(400).json({ error: "Jid does not exists" });
+				return;
+			}
 
 			const url = await session.profilePictureUrl(jid, "image");
 			res.status(200).json({ url });
@@ -30,10 +33,16 @@ export const presenceHandler =
 		const session = WhatsappService.getSession(sessionId)!;
 
 		const exists = await WhatsappService.jidExists(session, jid, type);
-		if (!exists) return res.status(400).json({ error: "Jid does not exists" });
+		if (!exists) {
+			res.status(400).json({ error: "Jid does not exists" });
+			return;
+		}
 
 		const result = await updatePresence(session, presence, jid);
-		if (result.error) return res.status(result.code ?? 500).json({ error: result.error });
+		if (result.error) {
+			res.status(result.code ?? 500).json({ error: result.error });
+			return;
+		}
 
 		res.status(200).json(result);
 	};

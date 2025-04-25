@@ -20,8 +20,9 @@ export class ExpressServer {
 	private setupRoutes() {
 		this.app.use("/", routes);
 
-		this.app.all("*", (_: Request, res: Response) =>
-			res.status(404).json({ error: "URL not found" }),
+		this.app.all("*", (_: Request, res: Response) => {
+			res.status(404).json({ error: "URL not found" })
+		},
 		);
 	}
 

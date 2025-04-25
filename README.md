@@ -12,8 +12,8 @@ Project continued from [@ookamiiixd/baileys-api](https://github.com/ookamiiixd/b
 
 ## Requirements
 
--   NodeJS version 18.19.0 or higher (Recommended version 20 and above)
--   Prisma [supported databases](https://www.prisma.io/docs/reference/database-reference/supported-databases). Tested on MySQL and PostgreSQL
+- NodeJS version 18.19.0 or higher (Recommended version 20 and above)
+- Prisma [supported databases](https://www.prisma.io/docs/reference/database-reference/supported-databases). Tested on MySQL and PostgreSQL
 
 ## Installation
 
@@ -117,7 +117,7 @@ The API Documentation can fork **Postman Collection** in your workspace Postman
 
 ## Notes
 
--   I only provide a simple authentication method, please modify according to your own needs.
+- I only provide a simple authentication method, please modify according to your own needs.
 
 ## Notice
 

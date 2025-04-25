@@ -45,7 +45,7 @@ const envSchema = z
 			});
 		}
 	});
-console.log("process.env", process.env)
+console.log("process.env", process.env);
 const processEnv: Partial<CustomProcessEnv> = {
 	PORT: process.env.PORT ? Number(process.env.PORT) : 3000,
 	NODE_ENV: process.env.NODE_ENV as "development" | "production" | "test",

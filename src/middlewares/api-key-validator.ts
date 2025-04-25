@@ -10,12 +10,12 @@ export function apiKeyValidator(req: Request, res: Response, next: NextFunction)
 
 	const headerApiKey = req.headers["x-api-key"] || req.headers["X-API-Key"];
 	if (!headerApiKey) {
-		return res.status(403).json({ error: "X-API-Key Header doesn't exist" });
+		res.status(403).json({ error: "X-API-Key Header doesn't exist" });
 	}
-	if (headerApiKey !== apiKey) {
-		return res.status(403).json({ error: "Your APIIIII key is invalid" });
+	else if (headerApiKey !== apiKey) {
+		res.status(403).json({ error: "Your APIIIII key is invalid" });
 	}
-	next();
+	else next();
 }
 
 export function apiKeyValidatorParam(req: Request, res: Response, next: NextFunction) {
@@ -25,10 +25,10 @@ export function apiKeyValidatorParam(req: Request, res: Response, next: NextFunc
 
 	const paramApiKey = req.query["api_key"] || req.query["API_KEY"];
 	if (!paramApiKey) {
-		return res.status(403).json({ error: "api_key query params doesn't exist" });
+		res.status(403).json({ error: "api_key query params doesn't exist" });
 	}
-	if (paramApiKey !== apiKey) {
-		return res.status(403).json({ error: "Your API key is invalid" });
+	else if (paramApiKey !== apiKey) {
+		res.status(403).json({ error: "Your API key is invalid" });
 	}
-	next();
+	else next();
 }

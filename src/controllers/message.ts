@@ -42,7 +42,10 @@ export const send: RequestHandler = async (req, res) => {
 		const session = WhatsappService.getSession(sessionId)!;
 
 		const validJid = await WhatsappService.validJid(session, jid, type);
-		if (!validJid) return res.status(400).json({ error: "JID does not exists" });
+		if (!validJid) {
+			res.status(400).json({ error: "JID does not exists" });
+			return
+		}
 
 		await updatePresence(session, WAPresence.Available, validJid);
 		const result = await session.sendMessage(validJid, message, options);
@@ -146,7 +149,10 @@ export const deleteMessage: RequestHandler = async (req, res) => {
 		const session = WhatsappService.getSession(sessionId)!;
 
 		const exists = await WhatsappService.jidExists(session, jid, type);
-		if (!exists) return res.status(400).json({ error: "JID does not exists" });
+		if (!exists) {
+			res.status(400).json({ error: "JID does not exists" });
+			return
+		}
 
 		const result = await session.sendMessage(jid, { delete: message });
 
@@ -181,7 +187,10 @@ export const deleteMessageForMe: RequestHandler = async (req, res) => {
 		const session = WhatsappService.getSession(sessionId)!;
 
 		const exists = await WhatsappService.jidExists(session, jid, type);
-		if (!exists) return res.status(400).json({ error: "JID does not exists" });
+		if (!exists) {
+			res.status(400).json({ error: "JID does not exists" });
+			return;
+		}
 
 		// @ts-ignore
 		const result = await session.chatModify({ clear: { messages: [message] } }, jid);
