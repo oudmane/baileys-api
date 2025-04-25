@@ -3,11 +3,10 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 
 COPY package*.json ./
+COPY prisma/schema.prisma ./prisma/
 
 # Install git
 RUN apk add --no-cache git
-
-COPY prisma/schema.prisma ./
 
 RUN npm ci
 
