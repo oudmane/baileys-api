@@ -7,7 +7,7 @@ COPY package*.json .
 # Install git
 RUN apk add --no-cache git
 
-COPY prisma/schema.prisma .
+COPY prisma/schema.prisma ./
 
 RUN npm ci
 
@@ -15,7 +15,7 @@ RUN npx prisma migrate
 
 RUN npx prisma generate
 
-COPY . .
+COPY . ./
 
 EXPOSE 3000
 
