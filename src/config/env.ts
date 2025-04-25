@@ -26,7 +26,7 @@ const envSchema = z
 		NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
 		URL_WEBHOOK: z.string().optional(),
 		ENABLE_WEBHOOK: z.boolean(),
-		ENABLE_WEBSOCKET: z.boolean(),
+		ENABLE_WEBSOCKET: z.boolean().default(true),
 		BOT_NAME: z.string().optional().default("Baileys Bot"),
 		DATABASE_URL: z.string(),
 		LOG_LEVEL: z.nativeEnum(LogLevel).default(LogLevel.INFO),
@@ -45,7 +45,7 @@ const envSchema = z
 			});
 		}
 	});
-
+console.log("process.env", process.env)
 const processEnv: Partial<CustomProcessEnv> = {
 	PORT: process.env.PORT ? Number(process.env.PORT) : 3000,
 	NODE_ENV: process.env.NODE_ENV as "development" | "production" | "test",

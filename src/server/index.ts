@@ -18,6 +18,7 @@ export class Server {
 	}
 
 	private setupSocketServer() {
+		console.log("ENABLE_WEBSOCKET", env.ENABLE_WEBSOCKET);
 		if (env.ENABLE_WEBSOCKET) {
 			this.socketServer = new SocketServer(this.server);
 		}

@@ -11,6 +11,8 @@ RUN npm install --quiet
 
 RUN npx prisma migrate
 
+RUN npx prisma generate
+
 COPY . .
 
 EXPOSE 3000
