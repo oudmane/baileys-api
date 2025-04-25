@@ -7,7 +7,7 @@ export const list: RequestHandler = (req, res) => {
 
 export const find: RequestHandler = (req, res) => {
 	res.status(200).json({ message: "Session found" });
-}
+};
 
 export const status: RequestHandler = (req, res) => {
 	const session = WhatsappService.getSession(req.params.sessionId)!;
@@ -19,8 +19,7 @@ export const add: RequestHandler = async (req, res) => {
 
 	if (WhatsappService.sessionExists(sessionId))
 		res.status(400).json({ error: "Session already exists" });
-	else
-		WhatsappService.createSession({ sessionId, res, readIncomingMessages, socketConfig });
+	else WhatsappService.createSession({ sessionId, res, readIncomingMessages, socketConfig });
 };
 
 export const addSSE: RequestHandler = async (req, res) => {

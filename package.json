@@ -7,7 +7,7 @@
 		"build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src",
 		"start": "node -r tsconfig-paths/register -r ts-node ./dist/main.js",
 		"dev": "nodemon src/main.ts",
-		"lint": "eslint . --ext .ts",
+		"lint": "eslint .",
 		"format": "prettier . --write",
 		"postinstall": "prisma generate",
 		"changelog:preview": "conventional-changelog -p angular -u",
@@ -64,6 +64,8 @@
 		"zod": "^3.24.3"
 	},
 	"devDependencies": {
+		"@eslint/eslintrc": "^3.3.1",
+		"@eslint/js": "^9.25.1",
 		"@types/cors": "^2.8.17",
 		"@types/express": "^5.0.1",
 		"@types/node": "^22.15.2",
@@ -72,8 +74,8 @@
 		"@typescript-eslint/eslint-plugin": "^8.31.0",
 		"@typescript-eslint/parser": "^8.31.0",
 		"conventional-changelog-cli": "^5.0.0",
-		"eslint": "^9.25.1",
 		"eslint-config-prettier": "^10.1.2",
+		"globals": "^16.0.0",
 		"nodemon": "^3.1.10",
 		"prettier": "^3.5.3",
 		"prettier-plugin-organize-imports": "^4.1.0",

@@ -44,7 +44,7 @@ export const send: RequestHandler = async (req, res) => {
 		const validJid = await WhatsappService.validJid(session, jid, type);
 		if (!validJid) {
 			res.status(400).json({ error: "JID does not exists" });
-			return
+			return;
 		}
 
 		await updatePresence(session, WAPresence.Available, validJid);
@@ -151,7 +151,7 @@ export const deleteMessage: RequestHandler = async (req, res) => {
 		const exists = await WhatsappService.jidExists(session, jid, type);
 		if (!exists) {
 			res.status(400).json({ error: "JID does not exists" });
-			return
+			return;
 		}
 
 		const result = await session.sendMessage(jid, { delete: message });
