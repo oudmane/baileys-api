@@ -2,7 +2,7 @@ import type { proto, WAGenericMediaMessage, WAMessage } from "baileys";
 import { downloadMediaMessage } from "baileys";
 import { serializePrisma, delay as delayMs, logger, emitEvent } from "@/utils";
 import type { RequestHandler } from "express";
-import type { Message } from "@prisma/client";
+import type { Message } from "../../prisma/generated/client";
 import { prisma } from "@/config/database";
 import WhatsappService from "@/whatsapp/service";
 import { updatePresence } from "./misc";

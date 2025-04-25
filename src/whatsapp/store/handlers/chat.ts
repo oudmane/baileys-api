@@ -2,8 +2,8 @@ import { type BaileysEventEmitter } from "baileys";
 import type { BaileysEventHandler, MakeTransformedPrisma } from "@/types";
 import { transformPrisma, logger, emitEvent } from "@/utils";
 import { prisma } from "@/config/database";
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
-import type { Chat } from "@prisma/client";
+import { PrismaClientKnownRequestError } from "../../../../prisma/generated/client/runtime/library";
+import type { Chat } from "../../../../prisma/generated/client";
 
 export default function chatHandler(sessionId: string, event: BaileysEventEmitter) {
 	const model = prisma.chat;
