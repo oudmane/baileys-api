@@ -7,7 +7,9 @@ COPY package*.json .
 # Install git
 RUN apk add --no-cache git
 
-RUN npm install --quiet
+COPY prisma/schema.prisma .
+
+RUN npm ci
 
 RUN npx prisma migrate
 
