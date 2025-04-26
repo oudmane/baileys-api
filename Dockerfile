@@ -10,7 +10,7 @@ RUN apk add --no-cache git
 
 RUN npm ci
 
-RUN npx prisma migrate
+RUN npx prisma migrate dev
 
 RUN npx prisma generate
 
